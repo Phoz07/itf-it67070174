@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Hello tailwindcss</h1>
+    <nav class="max-w-screen min-h-[80px] w-full shadow-md flex justify-between items-center fixed z-20">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center">
+                <h1 class="text-4xl font-bold">Phosdev</h1>
+                <ul class="flex gap-4">
+                    <button class="hover:text-gray-400 transition duration-300"><a href="#">About me</a></button>
+                    <button class="hover:text-gray-400 transition duration-300"><a href="#">Projects</a></button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="container mx-auto">
+        <div class="min-h-screen flex items-center gap-20">
+            <div class="w-1/3 rounded-xl overflow-hidden"><img
+                    src="https://images.unsplash.com/photo-1504715329877-f69f5258f4e8?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""></div>
+            <div class="w-1/2 space-y-4">
+                <h1 class="text-6xl font-bold">Hello I am <span
+                        class="bg-gradient-to-br from-blue-600 to-purple-600 text-transparent bg-clip-text">Developer</span>
+                </h1>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ut fugiat minus eos repellat
+                    laudantium, cumque nemo est consequatur tempora, alias voluptates perferendis mollitia! Eaque animi
+                    expedita recusandae voluptate tempora.</p>
+                <ul class="flex gap-4">
+                    <li
+                        class="bg-slate-800 text-white py-2 px-4 rounded-md hover:bg-slate-800/80 hover:scale-95 transition active:scale-90 duration-300">
+                        <a href="https://github.com/Phoz07">Github</a>
+                    </li>
+                    <li
+                        class="bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-500/80 hover:scale-95 transition active:scale-90 duration-300">
+                        <a href="https://instagram.com/phos.07/">instagram</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <footer class="max-w-screen w-full bg-slate-800 text-white p-10">
+        <div class="container mx-auto">
+            <h1 class="text-center text-2xl">Made by <a
+                    class="text-blue-500 underline hover:text-blue-600 transition duration-300"
+                    href="https://github.com/Phoz07">Phoz07</a></h1>
+        </div>
+    </footer>
 </body>
+
 </html>
