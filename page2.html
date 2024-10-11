@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="min-h-screen max-w-screen flex items-center">
+        <div class="container mx-auto flex flex-col items-center gap-10">
+            <h1 class="text-4xl font-bold text-black hover:text-blue-500 hover:underline transition-all duration-300"><a
+                    href="https://github.com/Phoz07" id="username" target="_blank">it67070174 Sakditad's Phone Book</a>
+            </h1>
+            <div class="relative">
+                <div id="bgurl-profile"
+                    class="bg-cover bg-center w-[183px] h-[183px] bg-[url(https://images.unsplash.com/photo-1504715329877-f69f5258f4e8?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] rounded-full overflow-hidden">
+                    <div
+                        class="h-[30px] w-[30px] bg-red-500 rounded-full absolute bottom-3 right-3 flex justify-center items-center text-white">
+                        <span>1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="flex gap-x-4 items-center">
+                    <p>Set the Username</p>
+                    <input id="username-input" value="it67070174 Sakditad" type="text" placeholder="Enter Username"
+                        class="bg-gray-100 px-2 py-1 rounded-lg">
+                    <button id="username-button"
+                        class="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:scale-95 hover:bg-indigo-600/80 transition-all duration-300">SET</button>
+                </div>
+                <div class="flex gap-x-4 items-center">
+                    <p>Set the profile image URL</p>
+                    <input id="bgurl-input" type="text" placeholder="Enter Image URL"
+                        class="bg-gray-100 px-2 py-1 rounded-lg">
+                    <button id="bgurl-button"
+                        class="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:scale-95 hover:bg-indigo-600/80 transition-all duration-300">SET</button>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h1 class="text-center text-2xl font-bold">Phone Number List</h1>
+                <div class="space-x-4">
+                    <input type="text" id="add-input" placeholder="Name" class="bg-gray-100 px-2 py-1 rounded-lg">
+                    <input type="text" id="tell-input" placeholder="Tel" class="bg-gray-100 px-2 py-1 rounded-lg">
+                    <button id="add-button"
+                        class="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:scale-95 hover:bg-indigo-600/80 transition-all duration-300">ADD</button>
+                    <button id="export-button"
+                        class="bg-indigo-600 text-white px-4 py-1 rounded-lg hover:scale-95 hover:bg-indigo-600/80 transition-all duration-300">EXPORT</button>
+                </div>
+            </div>
+            <div class="max-w-[600px] w-full">
+                <table class="text-left border w-full">
+                    <tr class="bg-gray-200 border">
+                        <th class="border border-black p-4">No.</th>
+                        <th class="border border-black p-4">Name</th>
+                        <th class="border border-black p-4">Phone Number</th>
+                    </tr>
+                    <tbody id="table-list">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        let username = document.getElementById("username")
+        let usernameInput = document.getElementById("username-input")
+        let userButton = document.getElementById("username-button")
+        const setUserName = () => {
+            if (usernameInput.value == "") {
+                // username.innerHTML = "it67070174 Sakditad" + "'s Phone Book"
+                return
+            }
+            username.innerHTML = usernameInput.value + "'s Phone Book"
+        }
+        userButton.addEventListener("click", () => {
+            setUserName()
+        })
+
+        let bgurlInput = document.getElementById("bgurl-input")
+        let bgurlButton = document.getElementById("bgurl-button")
+        let bgurlProfile = document.getElementById("bgurl-profile")
+        const setProfileURL = () => {
+            if (bgurlInput.value == "") {
+                return
+            }
+            bgurlProfile.style.background = `url(${bgurlInput.value})`
+        }
+        bgurlButton.addEventListener("click", () => {
+            setProfileURL()
+        })
+        let userList = [{
+            name: "Sakditad",
+            phoneNumber: "911"
+        }]
+        let tableList = document.getElementById("table-list")
+        const loadUserList = () => {
+            tableList.innerHTML = userList.map((user, idx) => {
+                return (
+                    `<tr class="border">
+                    <td class="border border-black p-4">${idx + 1}</td>
+                    <td class="border border-black p-4">${user.name}</td>
+                    <td class="border border-black p-4">${user.phoneNumber}</td>
+                </tr>`
+                )
+            }).join("");
+        }
+        loadUserList()
+        let addButton = document.getElementById("add-button")
+        let exportButton = document.getElementById("export-button")
+        let addInput = document.getElementById("add-input")
+        let tellInput = document.getElementById("tell-input")
+        addButton.addEventListener("click", () => {
+            if (addInput.value && tellInput.value) {
+                userList.push({
+                    name: addInput.value,
+                    phoneNumber: tellInput.value
+                })
+            }
+            loadUserList()
+        })
+    </script>
+</body>
+
+</html>
