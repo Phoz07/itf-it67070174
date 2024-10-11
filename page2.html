@@ -121,6 +121,25 @@
             }
             loadUserList()
         })
+        const exportToCSV = () => {
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "No.,Name,Phone Number\n";
+            userList.forEach((user, idx) => {
+                csvContent += `${idx + 1},${user.name},${user.phoneNumber}\n`;
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "user_list.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+
+        exportButton.addEventListener("click", () => {
+            exportToCSV();
+        });
     </script>
 </body>
 
